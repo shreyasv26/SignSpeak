@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+SignSpeak – Real-Time Sign Language to Speech Converter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SignSpeak is an AI-powered system that converts live sign language gestures into spoken words using a combination of MediaPipe, TensorFlow LSTM, and OpenCV.
+The system captures real-time webcam input, extracts body & hand landmarks, classifies gestures, and speaks the predicted label through an integrated TTS engine.
 
-## Available Scripts
+🚀 Features
 
-In the project directory, you can run:
+Real-time gesture detection via webcam
 
-### `npm start`
+MediaPipe Holistic for pose + hand landmark extraction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+LSTM deep learning model trained on custom gesture sequences
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+TensorFlow Lite for low-latency prediction
 
-### `npm test`
+Clean UI with bounding box, FPS, and latency display
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Text-to-Speech that speaks predicted gestures
 
-### `npm run build`
+Supports custom gestures (hello, thank you, I love you, yes, no, help, please, cat, eat, fine)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+📦 Tech Stack
+Machine Learning
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+TensorFlow / Keras
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+LSTM Neural Networks
 
-### `npm run eject`
+TensorFlow Lite
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Computer Vision
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+MediaPipe Holistic
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+OpenCV
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Other Tools
 
-## Learn More
+NumPy
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+pyttsx3 (Text-to-Speech)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Python
 
-### Code Splitting
+Git/GitHub
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🎯 Project Workflow
 
-### Analyzing the Bundle Size
+Data Collection
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+MediaPipe extracts 258 landmark values per frame
 
-### Making a Progressive Web App
+20–30 frames per gesture → saved as .npy sequences
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Model Training
 
-### Advanced Configuration
+LSTM model learns temporal movement patterns
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Achieved ~90% accuracy on test set
 
-### Deployment
+Model exported to .tflite for real-time inference
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Real-Time Inference
 
-### `npm run build` fails to minify
+Webcam feed processed frame-by-frame
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Recent frames form a sequence
+
+TFLite model predicts gesture
+
+UI shows label, confidence, FPS
+
+TTS engine speaks the predicted gesture
+
+▶️ How to Run
+
+conda activate action
+python realtime_interface.py
+
+
+To run with speech output:
+python realtime_interface_speaking.py
+
+📊 Model Performance
+
+Accuracy: ~90–94% (varies by class)
+
+Low-latency predictions (~20–30ms)
+
+Smooth real-time inference
+
+Strong performance on dynamic gestures
+
+🗣️ Output Example
+
+When performing a gesture:
+
+UI shows: "hello"
+
+Smooth blue bounding box around head
+
+FPS & latency visible
+
+TTS says: "hello"
+
+💡 Future Improvements
+
+Add more gestures
+
+Support full sentence generation
+
+Add camera calibration
+
+Create a full React or mobile app UI
