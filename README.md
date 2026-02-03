@@ -31,11 +31,15 @@
 
 ## How to Run
 Activate your environment and run the interface:
+```bash
 conda activate action
 python realtime_interface.py
+```
 
 To run with active speech output:
+```bash
 python realtime_interface_speaking.py
+```
 
 ## Model Performance
 Accuracy: ~90–94% depending on the specific gesture class.
