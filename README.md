@@ -10,7 +10,7 @@
 * **Text-to-Speech (TTS)**: Integrated engine that speaks predicted gestures aloud.
 * **Gesture Support**: Recognizes "Hello," "Thank You," "I Love You," "Yes," "No," "Help," "Please," "Cat," "Eat," and "Fine."
 
-## 📦 Tech Stack
+## Tech Stack
 ### **Machine Learning**
 * TensorFlow / Keras (LSTM Neural Networks)
 * TensorFlow Lite
